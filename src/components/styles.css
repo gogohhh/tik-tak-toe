@@ -55,3 +55,9 @@ body {
     top: 35%; 
     left: 42%; 
 }
+
+.tablero_centrado{
+  position: absolute;
+  top: 30%; 
+  left: 42%; 
+}
