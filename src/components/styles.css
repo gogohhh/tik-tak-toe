@@ -20,7 +20,7 @@ body {
   
   .square {
     background: #fff;
-    border: 1px solid #999;
+    border: 2px solid rgb(112, 112, 112);
     float: left;
     font-size: 30px;
     font-weight: bold;
@@ -57,7 +57,27 @@ body {
 }
 
 .tablero_centrado{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
   position: absolute;
   top: 30%; 
-  left: 42%; 
+  left: 46%; 
+}
+
+.reiniciar{
+  position: absolute;
+  top: 68%; 
+  left: 46%; 
+  font-family: BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 17px;
+  background: #3498db;
+  border-color: #3498db;
+  border-radius: 28px;
+  color: #ffffff;
+  padding: 11px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.reiniciar:hover {
+  background: #3cb0fd;
 }

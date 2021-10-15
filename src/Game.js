@@ -55,6 +55,10 @@ class Game extends Component {
         })
     }
 
+    reload = () => {
+      window.location.reload(true);
+    }
+
   
     render() {
         const history = this.state.history;
@@ -74,6 +78,9 @@ class Game extends Component {
             squares={current.squares}
             onClick={(i) => this.handleClick(i)}
           />
+          </div>
+          <div class="reset">
+            <button type="submit" class="reiniciar" onClick={this.reload}>Reiniciar</button>
           </div>
           <div className="game-info">
             <div className="tablero_centrado">{ status }</div>
