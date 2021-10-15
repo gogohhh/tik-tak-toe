@@ -15,7 +15,7 @@ class Board extends Component {
         <div className="centrado">
           <div className="status">{status}</div>
           <div className="board-row"> 
-            {this.renderSquare(0)} {/* Se usa la funcion (renderSquare que contiene el componente boton) */}
+            {this.renderSquare(0)} {/* Se usa la funcion (renderSquare) que contiene el componente boton. */}
             {this.renderSquare(1)}
             {this.renderSquare(2)}
           </div>
