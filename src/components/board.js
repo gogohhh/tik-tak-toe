@@ -4,8 +4,28 @@ import './styles.css';
 import Square from '../App';
 
 class Board extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            squares: Array(9).fill(null),
+        }
+    } /* Pasamos el estado a los 9 elementos del board */
+
+    /** Definimos la funcion handleClick */
+
+    handleClick(i) {
+        const squares = this.state.squares.slice();
+        squares[i] = 'X';
+        this.setState({squares: squares})
+    }
+
+
     renderSquare(i) {
-      return <Square value={i} />; /* Se hace el llamado del componente del boton dentro de una funcion (renderSquare)*/
+      return (<Square 
+                value={this.state.squares[i]}
+                onClick={() => this.handleClick(i)}
+             />
+        ); /* Se hace el llamado del componente del boton dentro de una funcion (renderSquare)*/
     }
   
     render() {

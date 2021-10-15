@@ -4,23 +4,17 @@ import { Component } from 'react';
 
 class Square extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: null,
-    };
-  }
+   /* Se elimina el contructor por que ahora el estado viene de Board */
 
   render() {
     return (
       <button 
         className="square" 
-        onClick={
-          () => this.setState({value: 'X'})
-        }
-      >
+        onClick={() => this.props.onClick()} 
+      >  {/* Ahora se llama la funcion onClick de Board */ }
+       
         {/* Se manda el nuevo estado de la prop */}
-        {this.state.value} {/* Se hace el llamdo de la prop value del componente Board  */}
+        {this.props.value} {/* Se hace el llamdo de la prop value del componente Board  */}
       </button>
     );
   }
