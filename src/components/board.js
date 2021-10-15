@@ -5,7 +5,7 @@ import Square from '../App';
 
 class Board extends Component {
     renderSquare(i) {
-      return <Square />; /* Se hace el llamado del componente del boton dentro de una funcion (renderSquare)*/
+      return <Square value={i} />; /* Se hace el llamado del componente del boton dentro de una funcion (renderSquare)*/
     }
   
     render() {
