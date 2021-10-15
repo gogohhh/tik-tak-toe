@@ -14,7 +14,7 @@ class Board extends Component {
     /** Definimos la funcion handleClick */
 
     handleClick(i) {
-        const squares = this.state.squares.slice();
+        const squares = this.state.squares.slice(); /** slice() crea una copia del arreglo para hacerlo inmutable */
         squares[i] = 'X';
         this.setState({squares: squares})
     }
