@@ -16,6 +16,9 @@ class Board extends Component {
 
     handleClick(i) {
         const squares = this.state.squares.slice(); /** slice() crea una copia del arreglo para hacerlo inmutable */
+        if (calcularGanador(squares) || squares[i]){
+            return;
+        }
         squares[i] = this.state.xIsNext ? 'X' : 'O'; /** Ahora pasamos el estado de xisNext(boleano) para el manejo de los turnos */
         this.setState({
             squares: squares,
@@ -33,8 +36,15 @@ class Board extends Component {
     }
   
     render() {
-      const status = 'Siguiente jug.: X';
-  
+        const ganador = calcularGanador(this.state.squares);
+
+        let status;
+        if (ganador) {
+            status = 'Ganador: ' + ganador;
+        } else {
+            status  = 'Siguiente jug.: '  + (this.state.xIsNext ? 'X' : 'O');
+        }
+        
       return (
         <div className="centrado">
           <div className="status">{status}</div>
@@ -56,6 +66,27 @@ class Board extends Component {
         </div>
       );
     }
+  }
+
+  /** funcion para calcular el ganador mediante comprobacion del arreglo  */
+  function calcularGanador(squares) {
+    const lines = [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6],
+    ];
+    for (let i = 0; i < lines.length; i++) {
+      const [a, b, c] = lines[i];
+      if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+        return squares[a];
+      }
+    }
+    return null;
   }
 
   export default Board;
