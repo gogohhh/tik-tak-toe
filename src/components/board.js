@@ -8,6 +8,7 @@ class Board extends Component {
         super(props);
         this.state = {
             squares: Array(9).fill(null),
+            xIsNext: true,
         }
     } /* Pasamos el estado a los 9 elementos del board */
 
@@ -15,8 +16,11 @@ class Board extends Component {
 
     handleClick(i) {
         const squares = this.state.squares.slice(); /** slice() crea una copia del arreglo para hacerlo inmutable */
-        squares[i] = 'X';
-        this.setState({squares: squares})
+        squares[i] = this.state.xIsNext ? 'X' : 'O'; /** Ahora pasamos el estado de xisNext(boleano) para el manejo de los turnos */
+        this.setState({
+            squares: squares,
+            xIsNext: !this.state.xIsNext,
+        })
     }
 
 
