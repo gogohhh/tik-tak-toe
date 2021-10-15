@@ -5,17 +5,17 @@ import Square from '../App';
 
 class Board extends Component {
     renderSquare(i) {
-      return <Square />;
+      return <Square />; /* Se hace el llamado del componente del boton dentro de una funcion (renderSquare)*/
     }
   
     render() {
-      const status = 'Next player: X';
+      const status = 'Siguiente jug.: X';
   
       return (
         <div className="centrado">
           <div className="status">{status}</div>
-          <div className="board-row">
-            {this.renderSquare(0)}
+          <div className="board-row"> 
+            {this.renderSquare(0)} {/* Se usa la funcion (renderSquare que contiene el componente boton) */}
             {this.renderSquare(1)}
             {this.renderSquare(2)}
           </div>
