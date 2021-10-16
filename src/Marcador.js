@@ -1,5 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
+import Game from './Game';
 
 class Marcador extends Component {
 
@@ -10,17 +11,23 @@ class Marcador extends Component {
         };
     }
 
+    incrementar(){
+        this.setState((state) => {
+            
+        })
+    }
+
     render() {
-        let puntoX = this.setState.marcador;
-        let puntoO = this.setState.marcador;
+        let puntoX = this.setState.marcador + 1;
+        let puntoO = this.setState.marcador + 1;
         return(
             <div className="marcador">
                 <div className="title">Puntuación</div>
                 <div className="PlayX">Jugador X:
-                    <span>{puntoX}</span>
+                    <span> {puntoX}</span>
                 </div>
                 <div className="PlayO">Jugador O:
-                    <span>{puntoO}</span>
+                    <span> {puntoO}</span>
                 </div>
             </div>
         )

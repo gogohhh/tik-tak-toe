@@ -49,7 +49,7 @@ class Game extends Component {
         squares[i] = this.state.xIsNext ? 'X' : 'O'; /** Ahora pasamos el estado de xisNext(boleano) para el manejo de los turnos */
         this.setState({
             history: history.concat([{
-              squares: squares,
+              squares: squares,  /** Se combian el arreglo principal con la el array copia */
             }]),
             xIsNext: !this.state.xIsNext,
         })
