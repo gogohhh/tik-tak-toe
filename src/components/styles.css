@@ -70,8 +70,8 @@ body {
   left: 46%; 
   font-family: BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 17px;
-  background: #3498db;
-  border-color: #3498db;
+  background: #12c930;
+  border-color: #12c930;
   border-radius: 28px;
   color: #ffffff;
   padding: 11px 20px 10px 20px;
@@ -79,5 +79,5 @@ body {
 }
 
 .reiniciar:hover {
-  background: #3cb0fd;
+  background: #06c926;
 }
