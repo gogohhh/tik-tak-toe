@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Game from './Game';
+import Marcador from './Marcador';
 
 ReactDOM.render(
   <React.StrictMode>
     <Game />
+    <Marcador />
   </React.StrictMode>,
   document.getElementById('root')
 );
