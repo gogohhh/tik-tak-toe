@@ -33,13 +33,14 @@ class Game extends Component {
           squares: Array(9).fill(null),
         }],
         xIsNext: true,
+        stepNumber: 0,
       };
     }
 
     /** Definimos la funcion handleClick */
 
     handleClick(i) {
-        const history = this.state.history;
+        const history = this.state.history.slice(0, this.state.stepNumber + 1);
         const current = history[history.length - 1];
         const squares = current.squares.slice();  /** slice() crea una copia del arreglo para hacerlo inmutable */
         
@@ -51,8 +52,16 @@ class Game extends Component {
             history: history.concat([{
               squares: squares,  /** Se combian el arreglo principal con la el array copia */
             }]),
+            stepNumber: history.length,
             xIsNext: !this.state.xIsNext,
         })
+    }
+
+    jumpTo(step) {
+      this.setState({
+        stepNumber: step,
+        xIsNext: (step % 2) === 0,
+      });
     }
 
     reload = () => {
@@ -60,16 +69,30 @@ class Game extends Component {
     }
 
   
+    
+    
     render() {
         const history = this.state.history;
-        const current = history[history.length - 1]; //* Se recorren los movientos anteriores
+        const current = history[this.state.stepNumber]; //* Se recorren los movientos anteriores
         const ganador = calcularGanador(current.squares);
+
         let status;
         if (ganador) {
           status = 'Ganador: ' + ganador;
         } else {
           status = 'Siguiente jug.: ' + (this.state.xIsNext ? 'X' : 'O');
         } 
+      
+        const moves = history.map((step, move) => {
+          const desc = move ?
+            'Regresar al movimiento:' + move :
+            'Limpiar';
+          return (
+            <li key={move}>
+              <button class="reiniciar" onClick={() => this.jumpTo(move)}>{desc}</button>
+            </li>
+          );
+        });
 
       return (
         <div className="game">
@@ -80,7 +103,9 @@ class Game extends Component {
           />
           </div>
           <div class="reset">
-            <button type="submit" class="reiniciar" onClick={this.reload}>Reiniciar</button>
+            <li key="move">
+              {moves}
+            </li>
           </div>
           <div className="game-info">
             <div className="tablero_centrado">{ status }</div>

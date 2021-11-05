@@ -64,10 +64,7 @@ body {
   left: 36%; 
 }
 
-.reiniciar{
-  position: absolute;
-  top: 68%; 
-  left: 46%; 
+.reiniciar{ 
   font-family: BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 17px;
   background: #12c930;
