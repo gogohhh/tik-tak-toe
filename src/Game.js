@@ -79,17 +79,20 @@ class Game extends Component {
 
         let status;
         if (ganador) {
-          if(ganador === 'X'){
-            this.setState({score: this.state.score + 1});
-            }else{
-            this.setState({score2: this.state.score2 + 1});
-          }
+          
           status = 'Ganador: ' + ganador;
+
+          if(ganador === 'X'){
+            //this.setState({score: this.state.score + 1});
+            console.log("Estado: Ganador X" );
+            }else{
+            //this.setState({score2: this.state.score2 + 1});
+            console.log("Estado: Ganador O" );
+          }
           
-          
-        } else {
-          status = 'Siguiente jug.: ' + (this.state.xIsNext ? 'X' : 'O');
         } 
+
+        status = 'Siguiente jug.: ' + (this.state.xIsNext ? 'X' : 'O');
       
         const moves = history.map((step, move) => {
           const desc = move ? 'Regresar al movimiento:' + move : 'Limpiar';
