@@ -34,6 +34,8 @@ class Game extends Component {
         }],
         xIsNext: true,
         stepNumber: 0,
+        score: 0,
+        score2: 0,
       };
     }
 
@@ -68,25 +70,29 @@ class Game extends Component {
       window.location.reload(true);
     }
 
-  
-    
-    
     render() {
         const history = this.state.history;
         const current = history[this.state.stepNumber]; //* Se recorren los movientos anteriores
         const ganador = calcularGanador(current.squares);
 
+        
+
         let status;
         if (ganador) {
+          if(ganador === 'X'){
+            this.setState({score: this.state.score + 1});
+            }else{
+            this.setState({score2: this.state.score2 + 1});
+          }
           status = 'Ganador: ' + ganador;
+          
+          
         } else {
           status = 'Siguiente jug.: ' + (this.state.xIsNext ? 'X' : 'O');
         } 
       
         const moves = history.map((step, move) => {
-          const desc = move ?
-            'Regresar al movimiento:' + move :
-            'Limpiar';
+          const desc = move ? 'Regresar al movimiento:' + move : 'Limpiar';
           return (
             <li key={move}>
               <button class="reiniciar" onClick={() => this.jumpTo(move)}>{desc}</button>
@@ -110,6 +116,16 @@ class Game extends Component {
           <div className="game-info">
             <div className="tablero_centrado">{ status }</div>
             <ol>{/* TODO */}</ol>
+          </div>
+
+          <div className="marcador">
+            <div className="title">Puntuación</div>
+            <div className="PlayX">Jugador X:
+                <span> {this.state.score}</span>
+            </div>
+            <div className="PlayO">Jugador O:
+                <span> {this.state.score2}</span>
+            </div>
           </div>
         </div>
       );
